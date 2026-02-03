@@ -5,12 +5,10 @@
 }
 
 body {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
-    background-attachment: fixed;
-    min-height: 100vh;
-    padding: 20px;
-    position: relative;
+    /* font-family: 'Poppins', 'Segoe UI', sans-serif; */
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+    color: #1b5e20;
+    line-height: 1.6;
 }
 
 /* Icônes de nature en arrière-plan */
@@ -49,17 +47,15 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding-top: 10px;
 }
 
 /* Header */
 .dashboard-header {
-    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    padding: 2rem;
+    padding-top: 1rem;
     border-radius: 20px;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 40px rgba(46, 125, 50, 0.15);
-    border: 2px solid rgba(129, 199, 132, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,11 +63,11 @@ body {
     gap: 1rem;
 }
 
-.dashboard-title {
+/* .dashboard-title {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
+} */
 
 .dashboard-title h1 {
     color: #2e7d32;
@@ -584,4 +580,28 @@ body {
 .pagination .active span {
     background: #1b5e20;
     color: #fff;
+}
+
+
+
+.alert-success {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: #fff;
+    padding: 14px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    animation: fadeAlert 0.5s ease;
+}
+
+@keyframes fadeAlert {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

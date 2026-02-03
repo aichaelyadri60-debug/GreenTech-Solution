@@ -1,4 +1,5 @@
 
+
 /* Navigation */
 .navbar {
     background: rgba(255, 255, 255, 0.98);
@@ -11,7 +12,6 @@
 }
 
 .nav-container {
-    max-width: 1400px;
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;

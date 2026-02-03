@@ -109,7 +109,17 @@
                                 </div>
                             </div>
                             @if($product->stock > 0)
-                                <button class="add-btn">🛒</button>
+                            <form method="POST" action="{{ route('favorites.toggle', $product) }}">
+                                @csrf
+                                <button 
+                                type="submit" 
+                                class="favorite-btn {{ in_array($product->id, $favoriteIds) ? 'favorited' : '' }}"
+                                >
+                                ♥
+                            </button>
+                        </form>
+
+
                             @else
                                 <button class="add-btn" disabled>✗</button>
                             @endif
@@ -154,7 +164,7 @@
                 this.innerHTML = '✓';
                 this.style.background = '#43a047';
                 setTimeout(() => {
-                    this.innerHTML = '🛒';
+                    this.innerHTML = '⭐';
                     this.style.background = '';
                 }, 1500);
             });

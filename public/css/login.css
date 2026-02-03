@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+}
+
+/* Auth Container */
+.auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    /* min-height: 100px; */
+}
+
+/* Form Wrapper */
+.form-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(46, 125, 50, 0.2);
+    border: 2px solid rgba(129, 199, 132, 0.3);
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-wrapper::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 150px;
+    top: -50px;
+    right: -50px;
+    opacity: 0.05;
+    transform: rotate(-15deg);
+}
+
+/* Form Title */
+.form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-title h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+}
+
+.form-title p {
+    color: #66bb6a;
+    font-size: 0.95rem;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+label::before {
+    content: '🌱';
+    font-size: 1.1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #c8e6c9;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    background: #f1f8f4;
+    color: #1b5e20;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #66bb6a;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 187, 106, 0.1);
+    transform: translateY(-2px);
+}
+
+input::placeholder {
+    color: #81c784;
+}
+
+/* Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(67, 160, 71, 0.3);
+    margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(67, 160, 71, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-1px);
+}
+
+/* Links */
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e8f5e9;
+}
+
+.form-footer p {
+    color: #66bb6a;
+    font-size: 0.95rem;
+}
+
+.form-footer a {
+    color: #2e7d32;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+}
+
+.form-footer a:hover {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+/* Error Messages */
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 2px solid #ffcdd2;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.error-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.error-list li {
+    padding: 0.25rem 0;
+}
+
+.error-list li::before {
+    content: '⚠️ ';
+    margin-right: 0.5rem;
+}
+
+/* Success Message */
+.success-message {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 2px solid #c8e6c9;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Remember Me */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #2e7d32;
+    font-size: 0.9rem;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #66bb6a;
+    cursor: pointer;
+}
+
+/* Forgot Password */
+.forgot-password {
+    text-align: right;
+    margin-top: -0.5rem;
+}
+
+.forgot-password a {
+    color: #66bb6a;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #2e7d32;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    color: #81c784;
+    font-size: 0.85rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c8e6c9, transparent);
+}
+
+/* Social Login (optional) */
+.social-login {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 1rem;
+    background: white;
+    border: 2px solid #c8e6c9;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.social-btn:hover {
+    background: #f1f8f4;
+    border-color: #66bb6a;
+    transform: translateY(-2px);
+}
+
+/* Loading State */
+button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 1rem;
+    }
+    
+    .form-wrapper {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
+    
+    .form-title h1 {
+        font-size: 1.75rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 0.9rem 1rem;
+    }
+    
+    button[type="submit"] {
+        padding: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-wrapper {
+        padding: 1.5rem 1rem;
+    }
+    
+    .form-title h1 {
+        font-size: 1.5rem;
+    }
+}

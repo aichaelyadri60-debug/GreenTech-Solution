@@ -21,22 +21,26 @@
     <span class="nature-icon icon-6">🌱</span>
 </div>
 
+@include('layout.navbar')
 <div class="dashboard-container">
     
 
     <header class="dashboard-header">
         <div class="dashboard-title">
-            <span class="icon">🌿</span>
-            <h1>Tableau de Bord Admin</h1>
+            <!-- <span class="icon">🌿</span>
+            <h1>Tableau de Bord Admin</h1> -->
         </div>
         <div class="header-actions">
             <a href="{{ route('products.create') }}" class="btn btn-primary">
                 ➕ Ajouter un produit
             </a>
 
+               <!-- <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                @csrf
                 <button type="submit" class="btn btn-secondary">
                     🚪 Déconnexion
                 </button>
+            </form> -->
         </div>
     </header>
 
@@ -50,7 +54,6 @@
 
     @if(session('error'))
     <div class="alert alert-error">
-        <span>✗</span>
         <span>{{ session('error') }}</span>
     </div>
     @endif
@@ -108,6 +111,11 @@
 
         @if(isset($products) && count($products) > 0)
         <div id="table-data">
+            @if(session('seccess'))
+            <div class="alert-success">
+                {{session('seccess')}}
+            </div>
+            @endif
             @include('products._table', ['products' => $products])
         </div>
 
@@ -136,18 +144,18 @@
             <p>Êtes-vous sûr de vouloir supprimer le produit <strong id="productName"></strong> ?</p>
             <p style="color: #c62828; font-weight: 600;">Cette action est irréversible.</p>
         </div>
-        <div class="modal-actions">
-            <button onclick="closeModal()" class="btn btn-secondary">
-                ✗ Annuler
-            </button>
-            <form id="deleteForm" method="POST" style="display: inline;">
-                @csrf
-                @method('DELETE')
+        <form id="deleteForm" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">
+                    Annuler
+                </button>
                 <button type="submit" class="btn btn-danger">
                     🗑️ Supprimer
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -158,16 +166,16 @@ function closeModal() {
     modal.classList.remove('active');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const alerts = document.querySelectorAll('.alert');
-    alerts.forEach(alert => {
-        setTimeout(() => {
-            alert.style.opacity = '0';
-            alert.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => alert.remove(), 500);
-        }, 5000);
-    });
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     const alerts = document.querySelectorAll('.alert');
+//     alerts.forEach(alert => {
+//         setTimeout(() => {
+//             alert.style.opacity = '0';
+//             alert.style.transition = 'opacity 0.5s ease';
+//             setTimeout(() => alert.remove(), 500);
+//         }, 5000);
+//     });
+// });
 </script>
 
 
@@ -189,6 +197,30 @@ document.addEventListener('click', function (e) {
     }
 });
 </script>
+
+
+<script>
+function confirmDelete(id, name) {
+    const modal = document.getElementById('deleteModal');
+    const productName = document.getElementById('productName');
+    const deleteForm = document.getElementById('deleteForm');
+
+    productName.textContent = name;
+    deleteForm.action = `/products/${id}`;
+
+    modal.classList.add('active');
+}
+
+
+
+const div =document.querySelector('.alert-success');
+setTimeout(() => {
+    div.style.display ='none';
+}, 4000);
+
+
+</script>
+
 
 </body>
 </html>

@@ -24,4 +24,12 @@ class Product extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
+
+
+    public function favoritedBy()
+    {
+        return $this->belongsToMany(
+            User::class,'favories','product_id','user_id'
+        )->withTimestamps();
+    }
 }

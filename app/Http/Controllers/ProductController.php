@@ -32,8 +32,6 @@ public function index(Request $request)
 public function catalog(Request $request)
 {
     $query = Product::query();
-
-
     if ($request->filled('search')) {
         $query->where('name', 'like', '%' . $request->search . '%');
     }
@@ -51,9 +49,11 @@ public function catalog(Request $request)
 
     $products = $query->paginate(6)->withQueryString();
 
+    $favoriteIds = auth()->check() ? auth()->user()->favorites->pluck('id')->toArray() : [];
     return view('catalog', [
         'products' => $products,
         'totalProducts' => Product::count(),
+        'favoriteIds' =>  $favoriteIds
     ]);
 }
 
@@ -127,6 +127,8 @@ public function catalog(Request $request)
     {
         $item =Product::findOrFail($id);
         $item->delete();
-        return "delete successfuly";
+        return redirect()
+        ->back()
+        ->with('seccess' ,'produit supprimer avec sucess');
     }
 }
