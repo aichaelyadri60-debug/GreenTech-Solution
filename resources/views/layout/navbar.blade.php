@@ -38,7 +38,7 @@
             </li>
 
             <li>
-                <a href="{{ url('/#contact') }}"
+                <a href="{{ route('emailContact') }}"
                    class="nav-link ">
                     <span class="nav-link-icon">📧</span>Contact
                 </a>

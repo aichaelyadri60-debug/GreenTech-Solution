@@ -41,4 +41,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
+Route::get('/emailContact', function(){
+    return view('email.contact');
+})->name('emailContact');
+
+
+
 
