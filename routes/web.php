@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FavorieController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('Home');
@@ -41,10 +43,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/emailContact', function(){
-    return view('email.contact');
-})->name('emailContact');
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
+
+
+Route::get('/categorie/{id?}', [CategoryController::class, 'browse'])
+    ->name('categorie');
 
 
 

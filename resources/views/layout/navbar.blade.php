@@ -12,35 +12,35 @@
             <li>
                 <a href="{{ url('/') }}"
                    class="nav-link {{ request()->is('/') ? 'active' : '' }}">
-                    <span class="nav-link-icon">🏠</span>Accueil
+                    <span class="nav-link-icon"></span>Accueil
                 </a>
             </li>
 
             <li>
                 <a href="{{ route('catalog') }}"
                    class="nav-link {{ request()->routeIs('catalog') ? 'active' : '' }}">
-                    <span class="nav-link-icon">🌱</span>Catalogue
+                    <span class="nav-link-icon"></span>Catalogue
                 </a>
             </li>
 
             <li>
-                <a href="{{ url('/#categories') }}"
+                <a href="{{ route('categorie') }}"
                    class="nav-link ">
-                    <span class="nav-link-icon">📂</span>Catégories
+                    <span class="nav-link-icon"></span>Catégories
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/#about') }}"
                    class="nav-link ">
-                    <span class="nav-link-icon">ℹ️</span>À propos
+                    <span class="nav-link-icon"></span>À propos
                 </a>
             </li>
 
             <li>
-                <a href="{{ route('emailContact') }}"
+                <a href="{{ route('contact.form') }}"
                    class="nav-link ">
-                    <span class="nav-link-icon">📧</span>Contact
+                    <span class="nav-link-icon"></span>Contact
                 </a>
             </li>
             @guest
@@ -63,7 +63,7 @@
         @if(Auth::user()->role === 'user')
             <li>
                 <a href="{{route('favorites')}}" class="nav-link">
-                    ❤️  Favories
+                    Favories
                 </a>
             </li>
         @endif
@@ -71,7 +71,7 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="nav-link ">
-                    🚪 Déconnexion
+                     Déconnexion
                 </button>
             </form>
         </li>
