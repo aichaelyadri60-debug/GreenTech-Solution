@@ -47,3 +47,9 @@ Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.fo
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 
+
+Route::get('/categorie/{id?}', [CategoryController::class, 'browse'])
+    ->name('categorie');
+
+
+
